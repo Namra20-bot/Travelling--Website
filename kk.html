@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Worldwide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+ body {
+    background: url('https://static.vecteezy.com/system/resources/thumbnails/032/489/662/small/soft-pastel-sunset-over-the-ocean-calming-background-generative-ai-photo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #fff; /* Changed to white for better visibility on video */
+            position: relative;
+            z-index: 2;
+        } 
+        .welcome-section {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('https://4kwallpapers.com/images/wallpapers/new-york-city-cityscape-night-city-lights-half-moon-starry-3840x2160-450.jpg') no-repeat center center/cover; /* Set background image */
+}
+
+.welcome-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: 2;
+}
+
+.welcome-section h1 {
+    position: relative;
+    z-index: 3;
+    color: #b1ae18;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+        .button-section {
+            background-color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .btn-custom {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 2px solid #2c3e50;
+            border-radius: 10px;
+            color: #2c3e50;
+            background-color: #fff;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .btn-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(44, 62, 80, 0.3), transparent);
+            transition: all 0.5s ease;
+        }
+        .btn-custom:hover::before {
+            left: 100%;
+        }
+        .btn-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background-color: #2c3e50;
+            color: #fff;
+        }
+        .attract-section {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 50px;
+        }
+        .attract-content {
+            position: relative;
+            z-index: 2;
+            text-align: left; /* Aligning text to the left */
+            color: #111111;
+            padding-left: 20px; /* Adding some left padding */
+            text-shadow: 0px 0px 5px rgb(21, 185, 197), 0px 0px 10px rgb(171, 180, 83), 0px 0px 15px rgb(106, 114, 63); /* LED blue light effect */
+            font-weight: bold; /* Making the text bold */
+            font-size: 3rem; /* Adjust the font size */
+        }
+        .attract-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #910d0d;
+            text-shadow: 0px 0px 5px rgb(31, 31, 29), 0px 0px 10px rgb(51, 38, 38), 0px 0px 15px rgb(20, 20, 20); /* LED blue effect */
+        }
+        .attract-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 0px 0px 5px rgb(80, 61, 88), 0px 0px 10px rgb(65, 121, 63), 0px 0px 15px rgb(135, 189, 36); /* LED blue effect */
+        }
+        .attract-content .btn {
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            border-radius: 10px;
+            background-color: #a72e7e;
+            border: none;
+            color: #050505;
+            transition: all 0.3s ease;
+        }
+        .attract-content .btn:hover {
+            background-color: #286e5d;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(163, 23, 23, 0.3);
+        }
+        .country-section {
+            margin-top: 50px;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        .scrolling-container {
+            display: flex;
+            animation: scroll 20s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .card {
+            border: 2px solid black;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 250px;
+            margin-right: 20px;
+            white-space: normal;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .card-img-top {
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 2px solid black;
+        }
+        .card-body {
+            background-color: #fff;
+            padding: 15px;
+            border-top: 1px solid #eee;
+        }
+        .features {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: #555;
+        }
+        .top-right-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #08092e;
+            color: rgb(228, 196, 18);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px; /* Space between buttons */
+        }
+        .top-right-button:hover {
+            background-color: #795452;
+        }
+        .button-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: row; /* Horizontal buttons */
+            gap: 10px; /* Space between buttons */
+            z-index: 1000; /* Ensure buttons stay on top */
+        }
+         /* Add shaking effect */
+         @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px) rotate(-5deg); }
+            50% { transform: translateX(5px) rotate(5deg); }
+            75% { transform: translateX(-5px) rotate(-5deg); }
+            100% { transform: translateX(0); }
+        }
+
+        .map-section img {
+            max-width: 100%;
+            height: 90;
+            border: 5px solid #2c3e50;
+            border-radius: 10px;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            
+        }
+
+        .map-section:hover img {
+            animation: shake 0.5s ease-in-out;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .about-section {
+            background-color: #b4aeae;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .about-section h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #562b5a;
+        }
+        .about-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #794949;
+        }
+        .social-icons i {
+            font-size: 1.8rem;
+            margin: 0 15px;
+            color: #2f1769;
+            transition: color 0.3s;
+        }
+        .social-icons i:hover {
+            color: #8d443a;
+        }
+        .about-section {
+            padding: 50px;
+            text-align: center;
+        }
+        .about-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .about-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: auto;
+        }
+        .team-section {
+            padding: 50px;
+            text-align: center;
+        }
+        .team-member {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+        }
+        .team-member img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        .footer {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer p {
+            margin: 0;
+        }
+        .gallery-section {
+            padding: 60px 0;
+            position: relative;
+        }
+        .gallery-section h2 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            text-align: center;
+        }
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+        }
+        .gallery-item {
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+        .gallery-item:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            transform: rotate(-10deg);
+        }
+        .gallery-item:nth-child(2) {
+            top: 20%;
+            left: 30%;
+            transform: rotate(5deg);
+        }
+        .gallery-item:nth-child(3) {
+            top: 15%;
+            left: 55%;
+            transform: rotate(-15deg);
+        }
+        .gallery-item:nth-child(4) {
+            top: 30%;
+            left: 70%;
+            transform: rotate(10deg);
+        }
+        .gallery-item:nth-child(5) {
+            top: 50%;
+            left: 15%;
+            transform: rotate(-5deg);
+        }
+        .gallery-item:nth-child(6) {
+            top: 60%;
+            left: 50%;
+            transform: rotate(20deg);
+        }
+        .gallery-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .scrolling-container {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .attract-content h2 {
+                font-size: 2rem;
+            }
+            .attract-content p {
+                font-size: 1rem;
+            }
+            .button-container {
+                flex-direction: column; /* Stack buttons vertically on small screens */
+                top: 10px;
+                right: 10px;
+            }
+            /* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+.faq-section {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(131, 233, 207, 0.1);
+}
+
+.faq-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 15px;
+  background-color: #007bff;
+  color: white;
+  font-size: 18px;
+  text-align: left;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+}
+
+.faq-question:hover {
+  background-color: #0056b3;
+}
+
+.faq-answer {
+  padding: 15px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  display: none;
+  margin-top: 10px;
+}
+
+.faq-answer p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 15px;
+  }
+
+  .faq-title {
+    font-size: 20px;
+  }
+
+  .faq-question {
+    font-weight: bold; /* Make the text bold */
+  color: #2581dd; /* Change the color to your preferred color */
+  background-color: #771d1d; /* Optional: Add background color for the questions */
+  padding: 15px;
+  font-size: 18px;
+  text-align: left;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  transition: background-color 0.3s ease;
+  }
+
+  .faq-answer p {
+    font-size: 14px;
+    color: #562b5a;
+  }
+  .faq-question:hover {
+  background-color: #007bff; /* Optional: Change the background color on hover */
+  color: white; /* Change the text color when hovering */
+}
+}
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* Parallax Section */
+.parallax-section {
+    position: relative;
+    height: 500px;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/033/350/925/small_2x/wallpaper-dark-urban-surface-background-ai-generated-photo.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.parallax-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 2;
+}
+
+.parallax-content {
+    position: relative;
+    z-index: 3;
+    padding: 20px;
+}
+
+.parallax-content h2 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.parallax-content p {
+    font-size: 1.5rem;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/033/350/925/small_2x/wallpaper-dark-urban-surface-background-ai-generated-photo.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 80%;
+    max-width: 900px;
+    margin: 0;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+    color: #fff;
+    height: auto;
+    text-align: center;
+}
+
+.step-indicator {
+    font-size: 1.2em;
+    color: #FFD700;
+    margin: 15px 0;
+}
+
+label {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+input, select {
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 1em;
+}
+
+button {
+    background-color: #FF5733;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin: 10px 0;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #E74C3C;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: rgba(255, 255, 255, 0.2);
+    margin: 6px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #FFD700;
+}
+
+h3 {
+    color: #FFD700;
+}
+
+#packing-section {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    width: 80%;
+}
+
+#suggested-items {
+    margin-top: 20px;
+}
+
+
+        }
+    </style>
+    <!-- Top-Right Buttons (Horizontal) -->
+    <div class="button-container">
+        <a href="book-now.html"><button class="top-right-button"><b>Book Now</b></button></a>
+        <a href="travel-guide.html"><button class="top-right-button"><b>Travel Guide</b></button></a>
+        <a href="terminals-airlines.html"><button class="top-right-button"><b>Airlines</b></button></a>
+        <a href="services-hotel.html"><button class="top-right-button"><b>Hotels</b></button></a>
+        <a href="currency-exchange.html"><button class="top-right-button"><b>Currency</b></button></a>
+        <a href="contact-us.html"><button class="top-right-button"><b>contact Us</b></button></a>
+    </div>
+ <!-- Welcome Section with Background Image -->
+<div class="welcome-section">
+    <div class="overlay"></div>
+    <h1><b>Welcome to Travel Worldwide</b></h1>
+</div>
+     <!-- Parallax Section -->
+<div class="parallax-section">
+    <div class="parallax-overlay"></div>
+    <div class="parallax-content">
+        <h2><b>Travel is the only thing you buy that makes you richer! </b></h2>
+        <p><i>Traveling is one of the most exciting ways to experience the world . It opens up new horizons, allowing you to explore different cultures , try new foods , and meet amazing people . Every destination brings its own adventure and surprises . Whether you're lounging on a beach , hiking up mountains , or wandering through vibrant city streets , travel fills your heart with joy and your mind with memories that last a lifetime . So pack your bags  and let the journey begin! .</i></p>
+    </div>
+</div>
+
+    <!-- Explore Section -->
+    <div class="attract-section">
+        <div class="attract-content">
+            <div class="loader"></div>
+            <h2><b>Explore the World</b></h2>
+            <p>Your dream destination is just a trip away! <b> "Where will your passport take you next?"</b></p>
+            <a href="explore.html" class="btn"><b>Explore More</b></a>
+        </div>
+    </div>
+         <!-- Country Section -->
+<div class="country-section">
+    <div class="scrolling-container">
+        <!-- Country Cards -->
+        <div class="card">
+            <img src="https://images.alphacoders.com/124/1249032.jpg" class="card-img-top" alt="USA">
+            <div class="card-body">
+                <h5 class="card-title"><b>USA</b></h5>
+                <p class="card-text">Discover breathtaking landscapes.</p>
+                <p class="features"><i class="fa fa-wifi"></i> Free WiFi | <i class="fa fa-home"></i> House | <i class="fa fa-spa"></i> Spa</p>
+                <a href="booking-page.html" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://c4.wallpaperflare.com/wallpaper/581/138/530/nature-valley-mountain-landscape-wallpaper-preview.jpg" class="card-img-top" alt="Canada">
+            <div class="card-body">
+                <h5 class="card-title"><b>Canada</b></h5>
+                <p class="card-text">Explore nature like never before.</p>
+                <p class="features"><i class="fa fa-utensils"></i> Kitchen | <i class="fa fa-bed"></i> 2-4 Bedrooms</p>
+                <a href="booking-page.html" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://c4.wallpaperflare.com/wallpaper/7/639/798/eiffel-tower-paris-france-showplace-wallpaper-preview.jpg" class="card-img-top" alt="France">
+            <div class="card-body">
+                <h5 class="card-title"><b>France</b></h5>
+                <p class="card-text">Enjoy the romance of Paris.</p>
+                <p class="features"><i class="fa fa-spa"></i> Spa | <i class="fa fa-bed"></i> 2 Bedrooms</p>
+                <a href="booking-page.html" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images4.alphacoders.com/135/thumb-350-1351212.webp" class="card-img-top" alt="Italy">
+            <div class="card-body">
+                <h5 class="card-title"><b>Italy</b></h5>
+                <p class="card-text">Visit Rome, Venice, and more.</p>
+                <p class="features"><i class="fa fa-utensils"></i> Kitchen | <i class="fa fa-home"></i> House</p>
+                <a href="booking-page.html" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://c4.wallpaperflare.com/wallpaper/688/446/433/digital-digital-art-artwork-illustration-photography-hd-wallpaper-preview.jpg" class="card-img-top" alt="Japan">
+            <div class="card-body">
+                <h5 class="card-title"><b>Japan</b></h5>
+                <p class="card-text">Experience culture and technology.</p>
+                <p class="features"><i class="fa fa-bed"></i> 3 Bedrooms | <i class="fa fa-wifi"></i> Free WiFi</p>
+                <a href="book-page.html" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.wallpapersden.com/image/download/australia_am5saWqUmZqaraWkpJRobWllrWdma2U.jpg" class="card-img-top" alt="Australia">
+            <div class="card-body">
+                <h5 class="card-title"><b>Australia</b></h5>
+                <p class="card-text">Explore the Outback and beaches.</p>
+                <p class="features"><i class="fa fa-spa"></i> Spa | <i class="fa fa-home"></i> House</p>
+                <a href="booking-page.html" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+        <!-- Added Rich Countries -->
+        <div class="card">
+            <img src="https://c4.wallpaperflare.com/wallpaper/614/868/837/lake-nature-switzerland-world-wallpaper-preview.jpg" class="card-img-top" alt="Switzerland">
+            <div class="card-body">
+                <h5 class="card-title"><b>Switzerland</b></h5>
+                <p class="card-text">Explore the Alps and luxurious resorts.</p>
+                <p class="features"><i class="fa fa-spa"></i> Spa | <i class="fa fa-bed"></i> 3 Bedrooms</p>
+                <a href="booking-page.html" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1588336899284-950764f07147?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bHV4ZW1ib3VyZ3xlbnwwfHwwfHx8MA%3D%3D" class="card-img-top" alt="Luxembourg">
+            <div class="card-body">
+                <h5 class="card-title"><b>Luxembourg</b></h5>
+                <p class="card-text">A haven for finance and culture.</p>
+                <p class="features"><i class="fa fa-utensils"></i> Kitchen | <i class="fa fa-home"></i> House</p>
+                <a href="booking-page.html" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://wallpapercat.com/w/full/9/9/c/170841-3840x2160-desktop-4k-singapore-wallpaper.jpg" class="card-img-top" alt="Singapore">
+            <div class="card-body">
+                <h5 class="card-title"><b>Singapore</b></h5>
+                <p class="card-text">A city of innovation and luxury.</p>
+                <p class="features"><i class="fa fa-wifi"></i> Free WiFi | <i class="fa fa-spa"></i> Spa</p>
+                <a href="booking-page.html" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://c4.wallpaperflare.com/wallpaper/744/341/313/lofoten-norway-mountains-cityscape-wallpaper-preview.jpg" class="card-img-top" alt="Norway">
+            <div class="card-body">
+                <h5 class="card-title"><b>Norway</b></h5>
+                <p class="card-text">Discover stunning fjords and rich heritage.</p>
+                <p class="features"><i class="fa fa-home"></i> House | <i class="fa fa-bed"></i> 2 Bedrooms</p>
+                <a href="booking-page.html" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.wallpapersden.com/image/download/monaco-at-night_a2VtZmuUmZqaraWkpJRnbGVlrWZtZWU.jpg" class="card-img-top" alt="Monaco">
+            <div class="card-body">
+                <h5 class="card-title"><b>Monaco</b></h5>
+                <p class="card-text">Luxury yachts and the famous Grand Prix.</p>
+                <p class="features"><i class="fa fa-spa"></i> Spa | <i class="fa fa-bed"></i> 3 Bedrooms</p>
+                <a href="booking-page.html" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://wallpapers.com/images/hd/qatar-1600-x-900-picture-xhumc42kcrqkwmyd.jpg" class="card-img-top" alt="Qatar">
+            <div class="card-body">
+                <h5 class="card-title"><b>Qatar</b></h5>
+                <p class="card-text">A global hub of business and culture.</p>
+                <p class="features"><i class="fa fa-home"></i> House | <i class="fa fa-utensils"></i> Kitchen</p>
+                <a href="booking-page.html" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   
+ <!-- Packing List Generator Section -->
+ <div class="container">
+    <h1>✈️ <b>Packing List Generator</b></h1>
+
+    <!-- Destination Selection -->
+    <label for="destination"><b>CHOOSE DESTINATION:</b></label>
+    <select id="destination">
+        <option value="beach">🏖️ <b>Beach</b></option>
+        <option value="mountains">🏔️ <b>Mountains</b></option>
+        <option value="city">🏙️ <b>City</b></option>
+        <option value="business">💼 <b>Business Trip</b></option>
+    </select>
+
+    <!-- Days Input -->
+    <label for="days"><b>NUMBER OF DAYS:</b></label>
+    <input type="number" id="days" min="1" value="3">
+
+   
+    <!-- Generated Packing List -->
+    <h2>📝 <b>YOUR PACKING LIST</b></h2>
+     <!-- Link to Packing List Generator Page -->
+     <a href="packing.html">
+        <button class="link-button">🧳 <b>Go to Packing List Generator</b></button>
+    </a>
+    <ul id="packing-list"></ul>
+
+    <!-- Custom Item Input -->
+    <input type="text" id="custom-item" placeholder="➕ Add custom item...">
+    <button onclick="addItem()">➕ <b>Add</b></button>
+
+    <!-- Download Button -->
+    <button onclick="downloadList()">📥 <b>Download List</b></button>
+
+<!-- Link to External JavaScript -->
+<script src="script.js"></script>
+
+
+    
+   
+   <!-- Gallery Section -->
+   <div class="gallery-section">
+    <div class="container">
+        <h2>Explore Our Photo Gallery</h2>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="https://thumbs.dreamstime.com/b/panorama-moscow-tall-buildings-city-night-russia-new-district-moskva-river-scenic-view-modern-sunset-beautiful-151880192.jpg" alt="Gallery Image 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.shutterstock.com/image-photo/sunrise-on-tropical-island-sea-600nw-2437970589.jpg" alt="Gallery Image 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://media.istockphoto.com/id/1403500817/photo/the-craggies-in-the-blue-ridge-mountains.jpg?s=612x612&w=0&k=20&c=N-pGA8OClRVDzRfj_9AqANnOaDS3devZWwrQNwZuDSk=" alt="Gallery Image 3">
+            </div>
+            <div class="gallery-item">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/mt-assiniboine-provincial-park-at-sunrise-royalty-free-image-1623253564.jpg" alt="Gallery Image 4">
+            </div>
+            <div class="gallery-item">
+                <img src="https://media.istockphoto.com/id/853225264/photo/skyscrapers-of-the-dubai-world-trade-center.jpg?s=612x612&w=0&k=20&c=wCMzZqRzi3eiiXEcTXRZhyXI-yidh9Izcw1xDOAlMbM=" alt="Gallery Image 5">
+            </div>
+            <div class="gallery-item">
+                <img src="https://cdn.shopify.com/s/files/1/0517/9627/9484/files/Germany_480x480.jpg?v=1631942901" alt="Gallery Image 6">
+            </div>
+        </div>
+    </div>
+</div>
+ 
+    <!-- Login and About Us Section -->
+    <div class="about-section">
+        <div class="container">
+            <h2>Login</h2>
+            <p>Already have an account? Log in to access exclusive offers and book your next adventure with us.</p>
+            <a href="login.html" class="btn btn-primary">Login</a>
+           </div>
+           <div class="about-section">
+            <h2>About Us</h2>
+            <p>Welcome to Travel Explorer! We help travelers discover amazing destinations, book the best hotels, and create unforgettable memories.</p>
+        </div>
+        
+        <div class="team-section">
+            <h2>Meet Our Team</h2>
+            <div class="team-member">
+                <img src="https://i.pinimg.com/736x/22/29/a7/2229a7667cc78805475639849442a8e9.jpg" alt="CEO">
+                <h4><b>Namra Javed</b></h4>
+                <p>Founder & CEO</p>
+            </div>
+            <div class="team-member">
+                <img src="https://vid.alarabiya.net/images/2014/03/09/8a3da2df-ffbd-4977-9ea7-f6211cf52b97/8a3da2df-ffbd-4977-9ea7-f6211cf52b97_16x9_1200x676.jpg" alt="Manager">
+                <h4><b>Umar Javed</b></h4>
+                <p>Operations Manager</p>
+            </div>
+        </div>
+<!-- FAQ Section -->
+<section class="faq-section">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <button class="faq-question"><b>What is the booking process?</b></button>
+      <div class="faq-answer">
+        <p>The booking process is simple: choose your destination, select your dates, and complete the payment to confirm your booking.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><b>How do I cancel my booking?</b></button>
+      <div class="faq-answer">
+        <p>You can cancel your booking by logging into your account and selecting the booking you wish to cancel. A cancellation fee may apply.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><b>Are there any discounts or promotions?</b></button>
+      <div class="faq-answer">
+        <p>Yes! We offer seasonal promotions and discounts. Be sure to subscribe to our newsletter for the latest offers and updates.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><b>Can I modify my booking?</b></button>
+      <div class="faq-answer">
+        <p>Yes, you can modify your booking. Please contact our support team or log into your account to make changes.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question"><b>Do you offer group bookings?</b></button>
+      <div class="faq-answer">
+        <p>Yes, we do offer group bookings. Please contact us directly for more information and special offers.</p>
+      </div>
+    </div>
+  </section>
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 Travel Worldwide. All Rights Reserved.</p>
+    </div>
+</body>
+</html>
